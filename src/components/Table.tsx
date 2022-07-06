@@ -6,7 +6,8 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  FormControlLabel
+  FormControlLabel,
+  TableBody
 } from '@mui/material';
 import { CustomButton, CustomCheckbox } from './Customs';
 import TableRows from './TableRows';
@@ -35,14 +36,22 @@ export default function EnhancedTable() {
     <TableContainer
       component={Paper}
       elevation={0}
-      sx={{ overflowX: 'hidden' }}
+      sx={{ height: '100%', alignItems: 'stretch' }}
     >
-      <Table sx={{ minWidth: 480 }} aria-label="simple table">
+      <Table
+        sx={{ minWidth: 480 }}
+        aria-label="simple table"
+        stickyHeader
+      >
         <TableHead>
           <TableRow>
             <TableCell
               padding="checkbox"
-              sx={{ width: '50%', border: 0 }}
+              sx={{
+                width: '50%',
+                border: 0,
+                backgroundColor: 'white'
+              }}
             >
               <FormControlLabel
                 sx={{
@@ -75,7 +84,14 @@ export default function EnhancedTable() {
                 label="Select All"
               />
             </TableCell>
-            <TableCell align="right" sx={{ width: '50%', border: 0 }}>
+            <TableCell
+              align="right"
+              sx={{
+                width: '50%',
+                border: 0,
+                backgroundColor: 'white'
+              }}
+            >
               <CustomButton
                 size="small"
                 variant="contained"

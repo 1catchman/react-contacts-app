@@ -10,17 +10,18 @@ function useFetch(query: any, page: any) {
 
   const sendQuery = useCallback(async () => {
     try {
-      await setLoading(true);
-      await setError(false);
-      const res = await axios.get(
-        'https://randomuser.me/api/?results=10'
-      );
-      await dispatch({ type: Types.Add, payload: res.data.results });
+      setLoading(true);
+      setError(false);
+      await axios
+        .get('https://randomuser.me/api/?results=10')
+        .then((res: any) =>
+          dispatch({ type: Types.Add, payload: res.data.results })
+        );
       setLoading(false);
     } catch (err) {
       setError(err);
     }
-  }, [query, page]);
+  }, [dispatch]);
 
   useEffect(() => {
     sendQuery();

@@ -36,7 +36,9 @@ function DashboardContent() {
                 : theme.palette.grey[900],
             flexGrow: 1,
             height: '100vh',
-            overflow: 'auto'
+            overflow: 'auto',
+            display: 'flex',
+            flexDirection: 'column'
           }}
           className="scrollbar"
         >
